@@ -38,14 +38,18 @@ describe Dog do
 
   # Write a test using the second shared_example to test that dog responds to
   # talk ('WOOF!').
+  subject(:pintxo){described_class.new('Pintxo')}
   context '' do
+    include_examples 'shared method name'
   end
 
   # remove the 'x' before running this test
-  xit 'is not barking' do
+  it 'is not barking' do
+    expect(pintxo.barking?).not_to be true
   end
 
   # remove the 'x' before running this test
-  xit 'is sleeping' do
+  it 'is sleeping' do
+    expect(pintxo.sleeping?).to be true
   end
 end

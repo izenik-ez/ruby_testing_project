@@ -38,14 +38,18 @@ describe Cat do
 
   # Write a test using the second shared_example to test that cat responds to
   # talk ('meow').
+  subject(:katua){described_class.new("Katua")}
   context '' do
+    include_examples 'shared method name'
   end
 
   # remove the 'x' before running this test
-  xit 'is not hungry' do
+  it 'is not hungry' do
+    expect(katua.hungry?).to be false
   end
 
   # remove the 'x' before running this test
-  xit 'is hiding' do
+  it 'is hiding' do
+    expect(katua.hiding?).to be true
   end
 end
