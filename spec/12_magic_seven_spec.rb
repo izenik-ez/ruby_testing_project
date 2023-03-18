@@ -70,34 +70,59 @@ describe MagicSeven do
   # Write a test for each of the following methods:
 
   describe '#subtract_four' do
+    it 'returns 4' do
+      previous_step = 8 # Arrange
+      result = game.subtract_four previous_step # Act
+      expect(result).to eq 4
+    end
   end
 
   describe '#divide_by_two' do
+    it 'returns 5' do
+      previous_step = 10
+      result = game.divide_by_two previous_step
+      expect(result).to eq 5
+    end
   end
 
   # The following tests will need you to create new instances of MagicSeven with
   # a specific value for the random_number.
   describe '#subtract_random_number' do
+    context 'when the previous step is 10 and random number is 4' do
+      subject(:game_three){described_class.new(3)}
+      it 'returns 7' do
+        previous_step = 10
+        result = game_three.subtract_random_number previous_step
+        expect(result).to eq 7
+      end
+    end
   end
 
   # The #play method will always return seven! Test this game, using any
   # integer as the random_number. Update the context with the number.
   describe '#play' do
     context 'when the random number is ...' do
-      # remove the 'x' before running this test
-      xit 'will return 7' do
+      subject(:game_nineteen){described_class.new(19)}
+      it 'will return 7' do
+        result = game_nineteen.play
+        expect(result).to eq 7
       end
     end
 
-    context 'when the random number is ...' do
-      # remove the 'x' before running this test
-      xit 'will return 7' do
+    context 'when the random number is 1001' do
+      subject(:game_thousand){ described_class.new(1001) }
+      
+      it 'will return 7' do
+        result = game_thousand.play
+        expect(result).to eq 7
       end
     end
 
-    context 'when the random number is ...' do
-      # remove the 'x' before running this test
-      xit 'will return 7' do
+    context 'when the random number is 987.654.321' do
+      subject(:game_huge){ described_class.new(987_654_321)}
+      it 'will return 7' do
+        result = game_huge.play
+        expect(result).to eq 7
       end
     end
   end
